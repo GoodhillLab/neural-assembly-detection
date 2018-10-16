@@ -1,0 +1,15 @@
+THE FUNCTIONS IN THIS DIRECTORY WERE TAKEN FROM THE 'PSF+PSR' PACKAGE 
+(http://www.borgelt.net/pycoco.html / http://www.borgelt.net/python/psf+psr.tar.gz)
+BY CHRISTIAN BORGELT.
+
+THE FUNCTIONS REMAINED UN-MODIFIED.
+
+
+
+FOR THE FUNCTIONS TO BE USED THE PYFIM MODULE BY CHRISTIAN BORGELT HAS TO
+BE INSTALLED.
+
+INSTRUCTIONS:
+1. DOWNLOAD PYFIM PACKAGE: curl -O http://www.borgelt.net/src/pyfim.tar.gz
+2. EXTRACT PACKAGE: tar -xzvf pyfim.tar.gz
+3. INSTALL PYFIM MODULE: python setup_fim.py install --user

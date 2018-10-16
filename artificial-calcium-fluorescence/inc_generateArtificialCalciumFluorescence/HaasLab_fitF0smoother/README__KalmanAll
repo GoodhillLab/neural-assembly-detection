@@ -1,0 +1,10 @@
+THE FUNCTIONS IN THIS DIRECTORY WERE TAKEN FROM THE 'KALMAN FILTER TOOLBOX'
+PACKAGE (https://www.cs.ubc.ca/~murphyk/Software/index.html / https://www.cs.ubc.ca/~murphyk/Software/Kalman/kalman.html)
+BY KEVIN MURPHY.
+
+THE FOLLOWING FUNCTIONS WERE MODIFIED FROM THEIR ORIGINAL STATE BY KASPAR PODGORSKI:
+
+_ kalman_filter.m
+_ kalman_smoother.m
+
+THE OTHER FUNCTIONS REMAINED UN-MODIFIED.

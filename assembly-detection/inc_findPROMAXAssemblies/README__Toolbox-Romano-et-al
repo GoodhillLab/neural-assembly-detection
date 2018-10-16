@@ -1,0 +1,11 @@
+THE FUNCTIONS IN THIS DIRECTORY WERE TAKEN FROM THE 'TOOLBOX-ROMANO-ET-AL' 
+REPOSITORY (https://github.com/zebrain-lab/Toolbox-Romano-et-al).
+
+THE FOLLOWING FUNCTIONS WERE MODIFIED FROM THEIR ORIGINAL STATE ('% # '):
+
+_ FindAssemblies.m
+_ AssembliesActivations.m
+
+THE FOLLOWING FUNCTIONS REMAIN UN-MODIFIED:
+
+_ pValueSynch.m
