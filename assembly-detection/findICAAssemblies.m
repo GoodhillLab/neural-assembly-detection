@@ -41,7 +41,7 @@ if( size( deltaFoF , 1 ) >= size( deltaFoF , 2 ) )
         output_args(i).cs_assembly_vectors = cs_assembly_vectors;
         
         output_args(i).cs_assemblies = transpose( cellfun( @(v) find( abs(v) > mean(abs(v)) + 2 * std(abs(v)) ) , output_args(i).cs_assembly_vectors , 'UniformOutput' , false ) );
-        output_args(i).ca_assemblies = output_args(i).cs_assemblies( ~cellfun( @isempty , output_args(i).cs_assemblies , 'UniformOutput' , true ) );
+        output_args(i).cs_assemblies = output_args(i).cs_assemblies( ~cellfun( @isempty , output_args(i).cs_assemblies , 'UniformOutput' , true ) );
         
         
         

@@ -14,15 +14,22 @@ A complete list of third-party packages of functions is a follows in the order i
 * ['SVDEnsemble'](https://github.com/hanshuting/SVDEnsemble) package by S. Han, published under the GNU General Public License v3.0
 * ['PyFIM'](http://www.borgelt.net/pyfim.html) \& ['psf+psr'](http://www.borgelt.net/pycoco.html) package by C. Borgelt, published under the MIT License
 
+This software is licensed under the terms of the GNU General Public License v3.0. However, any third-party package shall retain their individual license.
 
-**Reference:** J. Mölter, L. Avitan, G. J. Goodhill 2018 *submitted to BMC Biology*
 
-*Version:* 15. October 2018
+
+**Reference:** J. Mölter, L. Avitan, and G. J. Goodhill. "Detecting neural assemblies in calcium imaging data". BMC Biology, *in press* (2018) doi: [10.1186/s12915-018-0606-4](https://doi.org/10.1186/s12915-018-0606-4).
+
+All datasets analysed in this work can be regenerated using the script `GENERATE_ALL_DATASETS`. However, on a single desktop computer this may take several days or weeks and will require about 350GB of disk space.
+
+In the directory `examples/` we provide a fully analysed dataset of surrogate calcium imaging data as well as the fully analysed dataset of stimulus-evoked calcium imaging data from the optic tectum of a larval zebrafish studied in the work mentioned above.
+
+*Version:* 15. November 2018
 
 
 ## Simulation of population calcium fluorescence activity
 ```Matlab
-ARTIFICIAL_CALCIUM_FLUORESCENCE_GENERATION( '~/' , 'TEST_1' , 0 , 1800 , 0.5 , 'HEX5_K5_medium' , 1 , 1 , 0.01 , 6 , 0 , Inf )
+ARTIFICIAL_CALCIUM_FLUORESCENCE_GENERATION( '~/' , 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' , 0 , 1800 , 0.5 , 'HEX5_K5_medium' , 1 , 1 , 0.01 , 6 , 0 , Inf )
 ```
 
 *Prerequisits of third-party packages:* 'fitF0smoother', 'KalmanAll'
@@ -37,8 +44,8 @@ Output: `*_CALCIUM-FLUORESCENCE.mat`
 * **`parameter.dT_step`: temporal resolution / lenght of a time step (s)**
 * **`parameter.time_steps`: number of time steps**
 * `parameter.assembly_configuration`: underlying ground truth assembly configuration
-* `parameter.rate_range`: background firing rate range
-* `parameter.event`: background firing rate range
+* `parameter.rate_range`: background firing rate range (1/s)
+* `parameter.eventDuration`: event duration (s)
 * `parameter.eventFreq`: event frequency (1/s)
 * `parameter.eventMult`: event firing rate multiplier
 * **`parameter.calcium_T1_2`: calcium indicator half-life (s)**
@@ -51,14 +58,14 @@ Note: For all subsequent analysis a structure as decribed above is expected for 
 
 ## Conversion from existing calcium fluorescence activity
 ```Matlab
-CALCIUM_FLUORESCENCE_CONVERSION( '~/Desktop/' , 'TEST_1' , dF_F_field , 0.5 , 1 )
+CALCIUM_FLUORESCENCE_CONVERSION( '~/' , 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' , dF_F_field , 0.5 , 1 )
 ```
 
 Output: `*_CALCIUM-FLUORESCENCE.mat`
 
 ## Preprocessing of the calcium fluorescence activity
 ```Matlab
-CALCIUM_FLUORESCENCE_PROCESSING( [ '~/Desktop/' 'TEST_1' '/' 'TEST_1' '_CALCIUM-FLUORESCENCE.mat' ] )
+CALCIUM_FLUORESCENCE_PROCESSING( [ '~/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '_CALCIUM-FLUORESCENCE.mat' ] )
 ```
 
 *Prerequisits of third-party packages:* 'peakfinder', 'oopsi' , 'Toolbox-Romano-et-al'
@@ -97,7 +104,7 @@ Output: `*_RASTER.mat`
 
 #### Using the ICA-CS / ICA-MP algorithm
 ```Matlab
-ICA_ASSEMBLY_DETECTION( [ '~/Desktop/' 'TEST_1' '/' 'TEST_1' '_CALCIUM-FLUORESCENCE.mat' ] )
+ICA_ASSEMBLY_DETECTION( [ '~/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '_CALCIUM-FLUORESCENCE.mat' ] )
 ```
 
 *Prerequisits of third-party packages:* 'toolbox'
@@ -113,7 +120,7 @@ Output: `*_ICA-ASSEMBLIES.mat`
 
 #### Using the Promax-MP algorithm
 ```Matlab
-PROMAX_MP_ASSEMBLY_DETECTION( [ '~/Desktop/' 'TEST_1' '/' 'TEST_1' '_RASTER.mat' ] )
+PROMAX_MP_ASSEMBLY_DETECTION( [ '~/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '_RASTER.mat' ] )
 ```
 
 *Prerequisits of third-party packages:* 'Toolbox-Romano-et-al'
@@ -137,7 +144,7 @@ Output: `*_PROMAX-MP-ASSEMBLIES.mat`
 
 #### Using the Promax-CS algorithm
 ```Matlab
-PROMAX_CS_ASSEMBLY_DETECTION( [ '~/Desktop/' 'TEST_1' '/' 'TEST_1' '_RASTER.mat' ] )
+PROMAX_CS_ASSEMBLY_DETECTION( [ '~/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '_RASTER.mat' ] )
 ```
 
 *Prerequisits of third-party packages:* 'toolbox', 'Toolbox-Romano-et-al'
@@ -161,7 +168,7 @@ Output: `*_PROMAX-MP-ASSEMBLIES.mat`
 
 #### Using the CORE algorithm
 ```Matlab
-CORE_ASSEMBLY_DETECTION( [ '~/Desktop/' 'TEST_1' '/' 'TEST_1' '_SPIKE-PROBABILITY-RASTER.mat' ] )
+CORE_ASSEMBLY_DETECTION( [ '~/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '_SPIKE-PROBABILITY-RASTER.mat' ] )
 ```
 
 Output: `*_CORE-ASSEMBLIES.mat`
@@ -172,7 +179,7 @@ Output: `*_CORE-ASSEMBLIES.mat`
 
 #### Using the SVD algorithm
 ```Matlab
-SVD_ASSEMBLY_DETECTION( [ '~/Desktop/' 'TEST_1' '/' 'TEST_1' '_SPIKE-PROBABILITY-RASTER.mat' ] )
+SVD_ASSEMBLY_DETECTION( [ '~/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '_SPIKE-PROBABILITY-RASTER.mat' ] )
 ```
 
 *Prerequisits of third-party packages:* 'SVDEnsemble'
@@ -185,7 +192,7 @@ Output: `*_SVD-ASSEMBLIES.mat`
 
 #### Using the SGC algorithm
 ```Matlab
-SGC_ASSEMBLY_DETECTION( [ '~/Desktop/' 'TEST_1' '/' 'TEST_1' '_ACTIVITY-RASTER.mat' ] )
+SGC_ASSEMBLY_DETECTION( [ '~/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '_ACTIVITY-RASTER.mat' ] )
 ```
 
 Output: `*_SGC-ASSEMBLIES.mat`
@@ -200,7 +207,7 @@ Output: `*_SGC-ASSEMBLIES.mat`
 
 #### Using the FIM-X algorithm (Python!)
 ```Matlab
-! $( cd ./assembly-detection/FIM_PSF_PSR_ASSEMBLY_DETECTION/ && ./py__FIM_PSF_PSR_ASSEMBLY_DETECTION.sh ~/Desktop/TEST_1/TEST_1_ACTIVITY-FIM-RASTER.dat )
+! ( cd ./assembly-detection/FIM_PSF_PSR_ASSEMBLY_DETECTION/ && ./py__FIM_PSF_PSR_ASSEMBLY_DETECTION.sh ~/HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0/HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0_ACTIVITY-FIM-RASTER.dat )
 ```
 
 *Prerequisits of third-party packages:* 'PyFIM', 'psf+psr'
@@ -209,7 +216,7 @@ Output: `*_FIM-PSF-PSR-ASSEMBLIES.dat`
 
 ## Collection of the results from the different algorithm for postprocessing
 ```Matlab
-ASSEMBLIES_COLLECTION( [ '~/Desktop/' 'TEST_1' '/' 'TEST_1' '_CALCIUM-FLUORESCENCE.mat' ] )
+ASSEMBLIES_COLLECTION( [ '~/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '/' 'HEX5_K5_medium__T1800s_dT500ms_cT1s_sKInf_eF10.0mHz_eM6_nS0' '_CALCIUM-FLUORESCENCE.mat' ] )
 ```
 
 Output: `*_ASSEMBLIES-COLLECTION.mat`
