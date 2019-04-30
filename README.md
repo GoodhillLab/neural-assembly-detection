@@ -18,13 +18,13 @@ This software is licensed under the terms of the GNU General Public License v3.0
 
 
 
-**Reference:** J. Mölter, L. Avitan, and G. J. Goodhill. "Detecting neural assemblies in calcium imaging data". BMC Biology, *in press* (2018) doi: [10.1186/s12915-018-0606-4](https://doi.org/10.1186/s12915-018-0606-4).
+**Reference:** J. Mölter, L. Avitan, and G. J. Goodhill. "Detecting neural assemblies in calcium imaging data". BMC Biology **16**:143 (2018) doi: [10.1186/s12915-018-0606-4](https://doi.org/10.1186/s12915-018-0606-4).
 
 All datasets analysed in this work can be regenerated using the script `GENERATE_ALL_DATASETS`. However, on a single desktop computer this may take several days or weeks and will require about 350GB of disk space.
 
 In the directory `examples/` we provide a fully analysed dataset of surrogate calcium imaging data as well as the fully analysed dataset of stimulus-evoked calcium imaging data from the optic tectum of a larval zebrafish studied in the work mentioned above.
 
-*Version:* 15. November 2018
+*Version:* 30. April 2019
 
 
 ## Simulation of population calcium fluorescence activity
